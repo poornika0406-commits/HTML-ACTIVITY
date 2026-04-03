@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Digital Blogg</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+  body {
+  font-family: Arial;
+  margin: 0;
+  background: #cda4cd;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  background: rgb(67, 5, 38);
+  color: rgb(184, 137, 173);
+  padding: 15px;
+}
+
+nav a {
+  color: rgb(228, 224, 233);
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+/* Blog Section */
+.blogs {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Blog Card */
+.blog-card {
+  background: rgb(222, 223, 234);
+  padding: 15px;
+  width: 300px;
+  border-radius: 10px;
+}
+</style>
+<body>
+
+  <!-- 🔷 NAVBAR -->
+  <nav>
+    <h1>Digital Blogg</h1>
+    <div>
+    <a href ="#">Home</a>
+     <a href="login.html">Login</a>
+     <a href="signup.html">Signup</a>
+     <a href="create.html">Write Blog</a>
+    </div>
+  </nav>
+
+  <!-- 🔷 BLOG SECTION -->
+  <section class="blogs">
+
+    <div class="blog-card">
+      <h2>Blog Title</h2>
+      <p>This is a sample blog content...</p>
+      <button>Read More</button>
+    </div>
+
+    <div class="blog-card">
+      <h2>Another Blog</h2>
+      <p>Content goes here...</p>
+      <button>Read More</button>
+    </div>
+
+  </section>
+<section class="blogs">
+</section>
+<script>
+let blogs = JSON.parse(localStorage.getItem("blogs")) || [];
+
+let blogContainer = document.querySelector(".blogs");
+
+blogs.forEach(blog => {
+  let div = document.createElement("div");
+  div.classList.add("blog-card");
+
+  div.innerHTML = `
+    <h3>${blog.title}</h3>
+    <p>${blog.content}</p>
+    <small>✍️ ${blog.author}</small>
+  `;
+
+  blogContainer.appendChild(div);
+});
+function deleteBlog(index) {
+  blogs.splice(index, 1);  // 👉 REMOVE blog from array
+
+  localStorage.setItem("blogs", JSON.stringify(blogs)); // update storage
+
+  displayBlogs(); // refresh UI
+}
+if(confirm("Are you sure?")) { ... }
+</script>
+
+
+</body>
+</html>
