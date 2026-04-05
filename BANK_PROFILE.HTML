@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bank Account Profile</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f0f2f5;
+    }
+
+    .header {
+      background-color: #004080;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .container {
+      width: 80%;
+      margin: 20px auto;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+    }
+
+    .profile img {
+      width: 80px;
+      border-radius: 50%;
+      margin-right: 20px;
+    }
+
+    .balance {
+      font-size: 24px;
+      color: green;
+      font-weight: bold;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #004080;
+      color: white;
+    }
+
+    .credit {
+      color: green;
+    }
+
+    .debit {
+      color: red;
+    }
+
+    button {
+      background: #004080;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    button:hover {
+      background: #002b5c;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <h1>My Bank Account</h1>
+  </div>
+
+  <div class="container">
+
+    <!-- Profile Section -->
+    <div class="card profile">
+      <img src="https://via.placeholder.com/80" alt="User">
+      <div>
+        <h2>Ramesh</h2>
+        <p>Account Number: ****1234</p>
+        <p>Branch: Bangalore</p>
+      </div>
+    </div>
+
+    <!-- Balance Section -->
+    <div class="card">
+      <h2>Available Balance</h2>
+      <p class="balance">₹50,000</p>
+    </div>
+
+    <!-- Actions -->
+    <div class="card">
+      <h2>Quick Actions</h2>
+      <button>Deposit</button>
+      <button>Withdraw</button>
+      <button>Transfer</button>
+    </div>
+
+    <!-- Transactions -->
+    <div class="card">
+      <h2>Recent Transactions</h2>
+
+      <table>
+        <tr>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Amount</th>
+          <th>Status</th>
+        </tr>
+
+        <tr>
+          <td>01 Apr 2026</td>
+          <td>Salary Credit</td>
+          <td class="credit">+ ₹20,000</td>
+          <td>Success</td>
+        </tr>
+
+        <tr>
+          <td>03 Apr 2026</td>
+          <td>Online Shopping</td>
+          <td class="debit">- ₹2,000</td>
+          <td>Success</td>
+        </tr>
+
+        <tr>
+          <td>04 Apr 2026</td>
+          <td>Electricity Bill</td>
+          <td class="debit">- ₹1,500</td>
+          <td>Success</td>
+        </tr>
+
+      </table>
+    </div>
+
+  </div>
+
+</body>
+</html>
