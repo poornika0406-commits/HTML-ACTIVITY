@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Digital Clock</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #111;
+            color: white;
+            transition: 0.5s;
+        }
+
+        .container {
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            font-size: 50px;
+        }
+
+        #clock {
+            font-size: 40px;
+            margin: 20px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background: orange;
+            color: black;
+            font-weight: bold;
+        }
+
+        .light {
+            background: white;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 id="greeting">Hello!</h1>
+        <div id="clock">00:00:00</div>
+        <button onclick="toggleTheme()">Toggle Theme</button>
+    </div>
+
+    <script>
+        function updateClock() {
+            let now = new Date();
+
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+
+            // Add leading zeros
+            hours = hours.toString().padStart(2, '0');
+            minutes = minutes.toString().padStart(2, '0');
+            seconds = seconds.toString().padStart(2, '0');
+
+            document.getElementById("clock").innerText = 
+                `${hours}:${minutes}:${seconds}`;
+
+            // Greeting Logic
+            let greetingText = "Hello!";
+            if (hours < 12) {
+                greetingText = "Good Morning 🌅";
+            } else if (hours < 18) {
+                greetingText = "Good Afternoon ☀️";
+            } else {
+                greetingText = "Good Evening 🌙";
+            }
+
+            document.getElementById("greeting").innerText = greetingText;
+        }
+
+        setInterval(updateClock, 1000);
+
+        function toggleTheme() {
+            document.body.classList.toggle("light");
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz App</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #222;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .quiz-box {
+            background: #333;
+            padding: 20px;
+            border-radius: 15px;
+            width: 350px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .option {
+            background: #555;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background: #777;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            background: orange;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="quiz-box">
+        <h2 id="question">Question here</h2>
+        <div id="options"></div>
+        <button onclick="nextQuestion()">Next</button>
+        <h3 id="score"></h3>
+    </div>
+
+    <script>
+        const quiz = [
+            {
+                question: "What is HTML?",
+                options: ["Programming Language", "Markup Language", "Database", "OS"],
+                answer: "Markup Language"
+            },
+            {
+                question: "Which tag is used for JavaScript?",
+                options: ["<js>", "<script>", "<javascript>", "<code>"],
+                answer: "<script>"
+            },
+            {
+                question: "Which is NOT a data type?",
+                options: ["String", "Number", "Boolean", "Floaty"],
+                answer: "Floaty"
+            }
+        ];
+
+        let currentQ = 0;
+        let score = 0;
+        let selected = "";
+
+        function loadQuestion() {
+            let q = quiz[currentQ];
+            document.getElementById("question").innerText = q.question;
+
+            let optionsHTML = "";
+            q.options.forEach(opt => {
+                optionsHTML += `<div class="option" onclick="selectOption('${opt}')">${opt}</div>`;
+            });
+
+            document.getElementById("options").innerHTML = optionsHTML;
+        }
+
+        function selectOption(opt) {
+            selected = opt;
+        }
+
+        function nextQuestion() {
+            if (selected === quiz[currentQ].answer) {
+                score++;
+            }
+
+            currentQ++;
+            selected = "";
+
+            if (currentQ < quiz.length) {
+                loadQuestion();
+            } else {
+                document.querySelector(".quiz-box").innerHTML =
+                    `<h2>Quiz Finished 🎉</h2>
+                     <h3>Your Score: ${score}/${quiz.length}</h3>`;
+            }
+        }
+
+        loadQuestion();
+    </script>
+
+</body>
+</html>
