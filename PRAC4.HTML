@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Unique Page</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  height: 100vh;
+}
+
+/* LEFT SIDE */
+.left {
+  width: 50%;
+  background: #111;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+
+/* RIGHT SIDE */
+.right {
+  width: 50%;
+  background: #00c2ff;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  transition: 0.5s;
+}
+
+/* BUTTONS */
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  background: #00c2ff;
+  color: black;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* HOVER EFFECT */
+.left:hover {
+  width: 60%;
+}
+
+.right:hover {
+  width: 60%;
+}
+</style>
+</head>
+
+<body>
+
+<div class="left">
+  <h1>Choose Mood</h1>
+  <button onclick="changeContent('study')">📘 Study</button>
+  <button onclick="changeContent('fun')">🎮 Fun</button>
+  <button onclick="changeContent('chill')">🌙 Chill</button>
+</div>
+
+<div class="right" id="display">
+  Select a mood 👈
+</div>
+
+<script>
+function changeContent(mode) {
+  let display = document.getElementById("display");
+
+  if (mode === "study") {
+    display.innerHTML = "Focus Mode Activated 📚";
+    display.style.background = "#38bdf8";
+  }
+
+  if (mode === "fun") {
+    display.innerHTML = "Game Time 🎮🔥";
+    display.style.background = "#facc15";
+  }
+
+  if (mode === "chill") {
+    display.innerHTML = "Relax & Breathe 🌙";
+    display.style.background = "#a78bfa";
+  }
+}
+</script>
+
+</body>
+</html>

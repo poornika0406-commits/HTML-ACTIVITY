@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FocusFlow</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #0f172a;
+  color: white;
+  transition: 0.4s;
+}
+
+.light-mode {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10%;
+  position: sticky;
+  top: 0;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+nav h1 {
+  color: #38bdf8;
+}
+
+nav button {
+  padding: 8px 15px;
+  border: none;
+  background: #38bdf8;
+  color: black;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* HERO */
+.hero {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 3rem;
+}
+
+.typing {
+  color: #38bdf8;
+  border-right: 2px solid;
+  padding-right: 5px;
+}
+
+/* BUTTON */
+.btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: #38bdf8;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+/* FEATURES */
+.features {
+  padding: 60px 10%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  background: #38bdf8;
+  color: black;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+}
+
+/* LIGHT MODE FIX */
+.light-mode .card {
+  background: white;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <h1>FocusFlow</h1>
+  <button onclick="toggleMode()">🌙 Mode</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h2>Boost Your <span class="typing"></span></h2>
+  <p>Stay focused. Stay productive.</p>
+  <button class="btn" onclick="scrollToFeatures()">Explore</button>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="card">
+    <h3>⚡ Fast Tasks</h3>
+    <p>Manage your work efficiently</p>
+  </div>
+
+  <div class="card">
+    <h3>🎯 Smart Goals</h3>
+    <p>AI-based priority suggestions</p>
+  </div>
+
+  <div class="card">
+    <h3>📊 Analytics</h3>
+    <p>Track your productivity growth</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 FocusFlow</p>
+</footer>
+
+<script>
+// DARK MODE
+function toggleMode() {
+  document.body.classList.toggle("light-mode");
+}
+
+// SCROLL
+function scrollToFeatures() {
+  document.getElementById("features").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+// TYPING EFFECT
+const words = ["Productivity", "Focus", "Workflow"];
+let i = 0;
+let j = 0;
+let currentWord = "";
+let isDeleting = false;
+
+function type() {
+  currentWord = words[i];
+
+  if (isDeleting) {
+    j--;
+  } else {
+    j++;
+  }
+
+  document.querySelector(".typing").textContent =
+    currentWord.substring(0, j);
+
+  if (!isDeleting && j === currentWord.length) {
+    isDeleting = true;
+    setTimeout(type, 1000);
+    return;
+  }
+
+  if (isDeleting && j === 0) {
+    isDeleting = false;
+    i = (i + 1) % words.length;
+  }
+
+  setTimeout(type, isDeleting ? 50 : 100);
+}
+
+type();
+</script>
+
+</body>
+</html>
