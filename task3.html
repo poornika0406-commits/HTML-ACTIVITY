@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Profile</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #f5f5f5;
+}
+
+/* HEADER */
+header {
+    background: #222;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* NAV */
+nav {
+    background: #444;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #00d9ff;
+}
+
+/* MAIN SECTION */
+section {
+    padding: 30px;
+}
+
+/* PROFILE CARD */
+.profile-card {
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.profile-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* SKILLS */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background: #eee;
+    margin: 5px;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+/* CONTACT LINK */
+.contact a {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    background: #222;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.contact a:hover {
+    background: #555;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🔹 HEADER -->
+<header>
+    <h1>User Profile</h1>
+</header>
+
+<!-- 🔹 NAVIGATION -->
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Profile</a>
+    <a href="#">Logout</a>
+</nav>
+
+<!-- 🔹 MAIN SECTION -->
+<section>
+
+    <!-- 🔹 PROFILE ARTICLE -->
+    <article class="profile-card">
+
+        <!-- Profile Image -->
+        <img src="https://via.placeholder.com/120" alt="Profile Image">
+
+        <!-- Name -->
+        <h2>John Doe</h2>
+
+        <!-- Bio -->
+        <p>Frontend Developer passionate about building modern web applications.</p>
+
+        <!-- Skills -->
+        <h3>Skills</h3>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ul>
+
+        <!-- Contact -->
+        <div class="contact">
+            <a href="mailto:john@example.com">Contact Me</a>
+        </div>
+
+    </article>
+
+</section>
+
+</body>
+</html>

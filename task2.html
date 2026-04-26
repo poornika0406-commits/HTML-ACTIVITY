@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auth System</title>
+
+<style>
+body {
+    font-family: Arial;
+    margin: 0;
+    background: #f4f4f4;
+}
+
+/* NAVBAR */
+nav {
+    background: #333;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #00d9ff;
+}
+
+/* SECTIONS */
+section {
+    display: none;
+    padding: 30px;
+}
+
+.active {
+    display: block;
+}
+
+/* FORM BOX */
+.form-box {
+    max-width: 400px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+}
+
+button {
+    background: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #555;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🔹 NAVIGATION -->
+<nav>
+    <a href="#" onclick="showPage('login')">Login</a>
+    <a href="#" onclick="showPage('register')">Register</a>
+    <a href="#" onclick="showPage('forgot')">Forgot Password</a>
+</nav>
+
+<!-- 🔹 LOGIN PAGE -->
+<section id="login" class="active">
+<div class="form-box">
+    <h2>Login</h2>
+
+    <input type="email" placeholder="Email" required>
+    <input type="password" placeholder="Password" required>
+
+    <label>
+        <input type="checkbox"> Remember Me
+    </label>
+
+    <p><a href="#" onclick="showPage('forgot')">Forgot Password?</a></p>
+
+    <button>Login</button>
+</div>
+</section>
+
+<!-- 🔹 REGISTER PAGE -->
+<section id="register">
+<div class="form-box">
+    <h2>Register</h2>
+
+    <input type="text" placeholder="Full Name" required>
+    <input type="email" placeholder="Email" required>
+    <input type="password" placeholder="Password" required>
+    <input type="password" placeholder="Confirm Password" required>
+
+    <!-- Gender -->
+    <p>Gender:</p>
+    <label><input type="radio" name="gender"> Male</label>
+    <label><input type="radio" name="gender"> Female</label>
+
+    <!-- Skills -->
+    <p>Skills:</p>
+    <label><input type="checkbox"> HTML</label>
+    <label><input type="checkbox"> CSS</label>
+    <label><input type="checkbox"> JavaScript</label>
+
+    <!-- Date -->
+    <p>Date of Birth:</p>
+    <input type="date">
+
+    <button>Register</button>
+</div>
+</section>
+
+<!-- 🔹 FORGOT PASSWORD -->
+<section id="forgot">
+<div class="form-box">
+    <h2>Forgot Password</h2>
+
+    <p>Enter your email to reset your password.</p>
+
+    <input type="email" placeholder="Enter your email">
+
+    <button>Reset Password</button>
+</div>
+</section>
+
+<!-- 🔹 SCRIPT -->
+<script>
+function showPage(page) {
+    document.querySelectorAll("section").forEach(sec => {
+        sec.classList.remove("active");
+    });
+
+    document.getElementById(page).classList.add("active");
+}
+</script>
+
+</body>
+</html>
